@@ -12,5 +12,4 @@ public interface StatisticsDao extends JpaRepository<Statistics, Integer> {
     @Query(value = "SELECT * FROM latest_statistics WHERE EMAIL=:email ORDER BY DATE DESC LIMIT 10", nativeQuery = true)
     List<Statistics> getLastTenStatistics(@Param("email") String email);
 
-
 }
