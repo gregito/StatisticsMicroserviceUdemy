@@ -29,6 +29,20 @@ public class StatisticsService {
 
     public List<Statistics> getStatistics(String jwt, String email) {
         List<LinkedHashMap> toDos = toDoDataCollector.getNewDataFromToDoService(jwt);
+        String statisticsDescription = getDescriptionByPriority(toDos);
+        List<Statistics> statistics = statisticsDao.getLastTenStatistics(email);
+        if (!statistics.isEmpty()) {
+            Date now = new Date();
+            long diffInMillisec = now.getTime() - statistics.get(0).getDate().getTime();
+            long diffInDays = diffInMillisec / (HOURS * MINUTES * MILLISECONDS);
+            if (diffInDays > 1) {
+                statistics.add(statisticsDao.save(new Statistics(null, statisticsDescription, new Date(), email)));
+            }
+        }
+        return statistics;
+    }
+
+    private String getDescriptionByPriority(List<LinkedHashMap> toDos) {
         String statisticsDescription = "No statistics available";
         if (!toDos.isEmpty()) {
             int lowPriorityToDoQuantity = INIT_QUANTITY;
@@ -46,16 +60,7 @@ public class StatisticsService {
                         lowPriorityToDoQuantity, highPriorityToDoQuantity);
             }
         }
-        List<Statistics> statistics = statisticsDao.getLastTenStatistics(email);
-        if (!statistics.isEmpty()) {
-            Date now = new Date();
-            long diffInMillisec = now.getTime() - statistics.get(0).getDate().getTime();
-            long diffInDays = diffInMillisec / (HOURS * MINUTES * MILLISECONDS);
-            if (diffInDays > 1) {
-                statistics.add(statisticsDao.save(new Statistics(null, statisticsDescription, new Date(), email)));
-            }
-        }
-        return statistics;
+        return statisticsDescription;
     }
 
 }
