@@ -29,7 +29,7 @@ public class ToDoDataCollector {
                 HttpMethod.POST,
                 request,
                 JsonResponseBody.class);
-        return (List) response.getBody();
+        return (List) response.getBody().getResponse();
     }
 
 }

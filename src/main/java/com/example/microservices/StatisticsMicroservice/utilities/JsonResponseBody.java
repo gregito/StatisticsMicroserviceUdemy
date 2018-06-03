@@ -6,6 +6,9 @@ public class JsonResponseBody {
 
     private Object response;
 
+    public JsonResponseBody() {
+    }
+
     public JsonResponseBody(int server, Object response) {
         this.server = server;
         this.response = response;
