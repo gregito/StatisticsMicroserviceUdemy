@@ -1,6 +1,6 @@
-package com.example.microservices.StatisticsMicroservice.controller.impl;
+package com.example.microservices.StatisticsMicroservice.controller;
 
-import com.example.microservices.StatisticsMicroservice.controller.interfaces.StatisticsEndpoint;
+import com.example.microservices.StatisticsMicroservice.api.endpoint.StatisticsEndpoint;
 import com.example.microservices.StatisticsMicroservice.service.StatisticsService;
 import com.example.microservices.StatisticsMicroservice.utilities.JsonResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;

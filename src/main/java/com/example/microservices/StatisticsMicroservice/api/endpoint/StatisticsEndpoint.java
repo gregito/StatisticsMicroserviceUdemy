@@ -1,4 +1,4 @@
-package com.example.microservices.StatisticsMicroservice.controller.interfaces;
+package com.example.microservices.StatisticsMicroservice.api.endpoint;
 
 import com.example.microservices.StatisticsMicroservice.utilities.JsonResponseBody;
 import org.springframework.http.ResponseEntity;
