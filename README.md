@@ -7,7 +7,7 @@ docker build -t statistics-service .
 
 Run the image with all the required environment variable and necessary exposed ports:
 
-(You should set the values replacing the <xy> parts)
+(You should set the values replacing the < values > parts)
 ```
 docker run -d \
 -e 'MYSQL_CONTAINER_IP=<your-mysq-server-ip>' \
