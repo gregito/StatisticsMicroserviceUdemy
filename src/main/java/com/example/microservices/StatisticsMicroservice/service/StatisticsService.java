@@ -19,6 +19,8 @@ public class StatisticsService {
 
     private static final long MINUTES = 60;
 
+    private static final long SECONDS = 60;
+
     private static final long MILLISECONDS = 1000;
 
     @Autowired
@@ -34,7 +36,7 @@ public class StatisticsService {
         if (!statistics.isEmpty()) {
             Date now = new Date();
             long diffInMillisec = now.getTime() - statistics.get(0).getDate().getTime();
-            long diffInDays = diffInMillisec / (HOURS * MINUTES * MILLISECONDS);
+            long diffInDays = diffInMillisec / (HOURS * MINUTES * SECONDS * MILLISECONDS);
             if (diffInDays > 1) {
                 statistics.add(statisticsDao.save(new Statistics(null, statisticsDescription, new Date(), email)));
             }
