@@ -19,4 +19,4 @@ docker run -d \
 statistics-service
 ```
 
-You can find the related to-do-service **[here](https://github.com/gregito/SpringMicroserviceJPA)**.
+You can find the related (and required) to-do-service **[here](https://github.com/gregito/SpringMicroserviceJPA)**.
